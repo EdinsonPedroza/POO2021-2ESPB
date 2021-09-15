@@ -9,12 +9,14 @@
 #include <iterator>
 #include "DetalleActa.h"
 #include "Acta.h"
+#include<fstream>
 #include <list>
+#include <stdlib.h>
 
 // Inclusion de librerias
 using namespace std;
 
-Acta acta1;
+
 
 class Posgrado
 {
@@ -22,7 +24,7 @@ private: //Atributos
 	
 	list<DetalleActa> criterios;
     map<int, Acta> actas;
-
+    Acta acta1;
 
 public:		  //Metodos
 	Posgrado(); //Constructor
@@ -33,8 +35,8 @@ public:		  //Metodos
 	void verActa();
 	void exportarActa();
 
-	void agregarCriterio();
 	void mostrarCriterios();
+    Acta getActa1();
 
 	// Gets and sets;
     //	void mostrarActas();

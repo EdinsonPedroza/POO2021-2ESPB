@@ -6,13 +6,11 @@
 #include <stdlib.h>
 #include <vector>
 #include "Criterio.h"
+#include "DetalleActa.h"
 #include <string>
 
 // Inclusion de librerias
-using std::cin;
-using std::cout;
-using std::endl;
-using std::string;
+using namespace std;
 
 enum tipoTrabajo { investigacion , Aplicado };
 enum estadoTrabajo {aprobado, reprobado};
@@ -61,8 +59,9 @@ public:		   //Metodos
     string getPeriodo();
     string getFecha();
     string getCoodirector();
+    tipoTrabajo getTipotrabajo();
     int getNumeroActa();
+    vector<Criterio> getListaDetalles();
 
-	vector<Criterio> getDetalles() const { return criterios; }
 };
 #endif /* !FACTURA_H */

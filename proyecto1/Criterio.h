@@ -4,7 +4,6 @@
 #include <iostream>
 #include <stdlib.h>
 #include <vector>
-
 // Inclusion de librerias
 using namespace std;
 

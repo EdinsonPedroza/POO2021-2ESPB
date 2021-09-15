@@ -72,11 +72,10 @@ void Criterio::crearCriterios() {
         listaCriterios.push_back(Criterio(numeroActa, textoCriterio, ponderacion));
         contador++;
         cout<<textoCriterio<<endl;
+
     } while (contador <=8);
 
-    Criterio criterios;
-    criterios.setlistaCriterios(listaCriterios);
-    criterios.mostrarCriterio();
+
 }
 
 void Criterio::setIdentificador() {

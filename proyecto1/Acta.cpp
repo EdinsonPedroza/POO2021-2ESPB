@@ -1,8 +1,6 @@
-
 #include "Acta.h"
 
 Acta::Acta() {
-
 }
 
 void Acta::agregarDetalle(Criterio detalle) {
@@ -13,10 +11,10 @@ void Acta::mostrarActa() {
     cout<<"Numero del acta: "<< numeroActa <<endl;
     cout<<"Fecha: "<< fecha <<endl;
     cout<<"Autor: "<< autor <<endl;
-   /* cout<<"Estado: "<< <<endl;
-    cout<<"Nota: "<< <<endl;
-    cout<<"nombre de los jurados : "<< <<" y "<< <<endl;
-    cout<<"Director: "<< <<endl;*/
+    cout<<"Estado: "<< tipoDeTrabajo <<endl;
+    cout<<"Nota: "<< notaFinal <<endl;
+    cout<<"nombre de los jurados : "<< jurado1<<" y "<< jurado2 <<endl;
+    cout<<"Director: "<< director<<endl;
 }
 
 
@@ -118,4 +116,12 @@ int Acta::getNumeroActa() {
 
 void Acta::setEstado(estadoTrabajo estado) {
     this->estadoDeTrabajo = estado;
+}
+
+tipoTrabajo Acta::getTipotrabajo() {
+    return this->tipoDeTrabajo;
+}
+
+vector<Criterio> Acta::getListaDetalles() {
+    return this->criterios;
 }
