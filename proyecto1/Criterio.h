@@ -3,35 +3,36 @@
 
 #include <iostream>
 #include <stdlib.h>
-#include "DetalleActa.h"
+#include <vector>
 
 // Inclusion de librerias
-using std::cin;
-using std::cout;
-using std::endl;
-using std::string;
+using namespace std;
 
 class Criterio
 {
 private: //Atributos
 
-	DetalleActa criterio;
 	int identificador;
     string texto;
     float ponderacion;
+    vector<Criterio> listaCriterios;
 
-public:				  //Metodos
+public:
+    Criterio();
+    Criterio(int identificador, string texto, float ponderacion);
 
-	Criterio(); //Constructor
     void crearCriterios();
 	void mostrarCriterio();
 
 	// Gets and sets
-	void setCriterio(DetalleActa criterios);
+
 	void setIdentificador();
     void setTexto();
     void setPonderacion();
 
+    vector<Criterio> getCriterios();
+    void setlistaCriterios(vector<Criterio>);
+    float getPonderacion();
 };
 
 

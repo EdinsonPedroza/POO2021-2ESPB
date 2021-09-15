@@ -13,10 +13,9 @@ using std::cin;
 using std::cout;
 using std::endl;
 using std::string;
-using std::vector;
 
 enum tipoTrabajo { investigacion , Aplicado };
-
+enum estadoTrabajo {aprobado, reprobado};
 class Acta
 {
 private: //Atributos
@@ -25,7 +24,9 @@ private: //Atributos
 	int numeroActa;
 	float notaFinal;
     tipoTrabajo tipoDeTrabajo;
-	vector<Criterio> detalles;
+    estadoTrabajo estadoDeTrabajo;
+	vector<Criterio> criterios;
+
 
 public:		   //Metodos
 	Acta(); //Constructor
@@ -49,6 +50,7 @@ public:		   //Metodos
     void setNumeroActa(int numeroActa);
     void setnotaFinal(float notaFinal);
     void setTipotrabajo(tipoTrabajo tipo);
+    void setEstado(estadoTrabajo estado);
 
     string getNombreTrabajo();
     string getAutor();
@@ -61,6 +63,6 @@ public:		   //Metodos
     string getCoodirector();
     int getNumeroActa();
 
-	vector<Criterio> getDetalles() const { return detalles; }
+	vector<Criterio> getDetalles() const { return criterios; }
 };
 #endif /* !FACTURA_H */

@@ -12,7 +12,7 @@ void Posgrado::crearActa(){
     string nombreTrabajo, autor, director, enfasis, jurado1, jurado2, periodo, fecha, coodirector;
     int numeroActa, trabajo;
 
-    Acta acta1;
+
 
     cin.ignore();
     cout <<"Ingrese la fecha: dd/mm/aa: ";
@@ -28,15 +28,16 @@ void Posgrado::crearActa(){
     getline(cin,autor);
     acta1.setAutor(autor);
 
+    cin.ignore();
     cout <<"Ingrese el nombre del trabajo: ";
     getline(cin,nombreTrabajo);
     acta1.setNombreTrabajo(nombreTrabajo);
-    cin.ignore();
 
+    cin.ignore();
     cout <<"Ingrese el nombre del director: ";
     getline(cin,director);
     acta1.setDirector(director);
-    cin.ignore();
+
 
     cout <<"Ingrese el tipo de trabajo 1.Aplicado 2.Investigacion: ";
     cin>>trabajo;
@@ -48,13 +49,40 @@ void Posgrado::crearActa(){
 
     // Adición al mapa de Actas
     actas.insert(std::pair<int, Acta>(numeroActa, acta1));
-	
+    Criterio criterio;
+    criterio.crearCriterios();
+
 }
 
 void Posgrado::calificarCriterios(){
+    float calificacionj1, calificacionj2, notaFinal=0, notaCriterio;
+    string comentario;
+    DetalleActa detalle;
+    Criterio criterio;
+    for (int i=1; i<=8; i++){
+        cout<<"Jurado 1. Ingrese la calificacion del criterio "<<i<<": "<<endl;
+        cin>>calificacionj1;
+        detalle.setCalificacionJurado1(calificacionj1);
 
+        cout<<"Jurado 2. Ingrese la calificacion del criterio "<<i<<": "<<endl;
+        cin>>calificacionj2;
+        detalle.setCalificacionJurado2(calificacionj2);
 
+        cout<<"Ingrese los comentarios del criterio "<<i<<": "<<endl;
+        getline(cin, comentario);
+        detalle.setComentarios(comentario);
+        cin.ignore();
 
+        notaFinal += (calificacionj1 + calificacionj2) * (criterio.getPonderacion()/100);
+    }
+    notaFinal/= 2;
+
+    if (notaFinal >=3.5){
+        acta1.setEstado(aprobado);
+    }else{
+        acta1.setEstado(reprobado);
+    }
+    
 
 }
 

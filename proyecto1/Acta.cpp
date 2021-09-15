@@ -115,3 +115,7 @@ void Acta::setTipotrabajo(tipoTrabajo tipo) {
 int Acta::getNumeroActa() {
     return this->numeroActa;
 }
+
+void Acta::setEstado(estadoTrabajo estado) {
+    this->estadoDeTrabajo = estado;
+}

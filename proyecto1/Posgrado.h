@@ -9,16 +9,18 @@
 #include <iterator>
 #include "DetalleActa.h"
 #include "Acta.h"
+#include <list>
 
 // Inclusion de librerias
 using namespace std;
 
+Acta acta1;
 
 class Posgrado
 {
 private: //Atributos
 	
-	map<int, DetalleActa> criterios;
+	list<DetalleActa> criterios;
     map<int, Acta> actas;
 
 
