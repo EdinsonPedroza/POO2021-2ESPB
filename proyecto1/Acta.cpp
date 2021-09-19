@@ -1,4 +1,5 @@
 #include "Acta.h"
+#include "Posgrado.h"
 
 Acta::Acta() {
 }
@@ -8,13 +9,24 @@ void Acta::agregarDetalle(Criterio detalle) {
 }
 
 void Acta::mostrarActa() {
-    cout<<"Numero del acta: "<< numeroActa <<endl;
-    cout<<"Fecha: "<< fecha <<endl;
-    cout<<"Autor: "<< autor <<endl;
-    cout<<"Estado: "<< tipoDeTrabajo <<endl;
-    cout<<"Nota: "<< notaFinal <<endl;
-    cout<<"nombre de los jurados : "<< jurado1<<" y "<< jurado2 <<endl;
-    cout<<"Director: "<< director<<endl;
+    Posgrado posgrado;
+    cout << "Numero del acta: " << numeroActa << endl;
+    cout << "Fecha: " << fecha << endl;
+    cout << "Autor: " << autor << endl;
+    if (estadoDeTrabajo == 0){
+        cout << "Estado: Aprobado" << endl;
+    }else{
+        cout << "Estado: Reprobado" << endl;
+    }
+    cout << "Nota: " << notaFinal << endl;
+
+    cout << "nombre de los jurados : " << jurado1 << " y " << jurado2 << endl;
+
+    cout << "Director: " << director << endl;
+
+    cout << "Coodirector: " << coodirector << endl;
+
+
 }
 
 
@@ -78,6 +90,8 @@ void Acta::setEnfasis(string enfasis) {
     this->enfasis = enfasis;
 }
 
+
+
 void Acta::setJurado1(string jurado1) {
     this->jurado1 = jurado1;
 }
@@ -114,14 +128,42 @@ int Acta::getNumeroActa() {
     return this->numeroActa;
 }
 
-void Acta::setEstado(estadoTrabajo estado) {
-    this->estadoDeTrabajo = estado;
-}
-
 tipoTrabajo Acta::getTipotrabajo() {
     return this->tipoDeTrabajo;
 }
 
 vector<Criterio> Acta::getListaDetalles() {
     return this->criterios;
+}
+
+float Acta::getnotaFinal() {
+    return notaFinal;
+
+}
+
+estadoTrabajo Acta::getEstado() {
+    return estadoDeTrabajo;
+
+}
+
+void Acta::setDetalleActa(DetalleActa detalles) {
+    this->detalles=detalles;
+}
+
+void Acta::definirEstadoCalificacion() {
+    if (this->notaFinal > 3.5){
+        this->estadoDeTrabajo = aprobado;
+    }else{
+        this->estadoDeTrabajo = reprobado;
+    }
+}
+
+
+
+void Acta::llamartexto() {
+    detalles.modificarTextoCriterios();
+}
+
+void Acta::llamarPonderacion() {
+    detalles.modificarPonderado();
 }

@@ -20,18 +20,18 @@ public:
     Criterio();
     Criterio(int identificador, string texto, float ponderacion);
 
-    void crearCriterios();
 	void mostrarCriterio();
 
 	// Gets and sets
 
-	void setIdentificador();
-    void setTexto();
-    void setPonderacion();
+	void setIdentificador(int id);
+    void setTexto(string textoNuevo);
+    void setPonderacion(float ponderacion);
 
     vector<Criterio> getCriterios();
     void setlistaCriterios(vector<Criterio>);
     float getPonderacion();
+    string getTextoCriterio();
 };
 
 

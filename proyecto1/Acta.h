@@ -24,7 +24,7 @@ private: //Atributos
     tipoTrabajo tipoDeTrabajo;
     estadoTrabajo estadoDeTrabajo;
 	vector<Criterio> criterios;
-
+    DetalleActa detalles;
 
 public:		   //Metodos
 	Acta(); //Constructor
@@ -48,7 +48,7 @@ public:		   //Metodos
     void setNumeroActa(int numeroActa);
     void setnotaFinal(float notaFinal);
     void setTipotrabajo(tipoTrabajo tipo);
-    void setEstado(estadoTrabajo estado);
+    void setDetalleActa(DetalleActa detalles);
 
     string getNombreTrabajo();
     string getAutor();
@@ -60,8 +60,12 @@ public:		   //Metodos
     string getFecha();
     string getCoodirector();
     tipoTrabajo getTipotrabajo();
+    float getnotaFinal();
+    estadoTrabajo getEstado();
     int getNumeroActa();
     vector<Criterio> getListaDetalles();
-
+    void definirEstadoCalificacion();
+    void llamarPonderacion();
+    void llamartexto();
 };
-#endif /* !FACTURA_H */
+#endif //ACTA_H

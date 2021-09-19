@@ -22,9 +22,8 @@ class Posgrado
 {
 private: //Atributos
 	
-	list<DetalleActa> criterios;
+
     map<int, Acta> actas;
-    Acta acta1;
 
 public:		  //Metodos
 	Posgrado(); //Constructor
@@ -36,10 +35,11 @@ public:		  //Metodos
 	void exportarActa();
 
 	void mostrarCriterios();
-    Acta getActa1();
+
 
 	// Gets and sets;
     //	void mostrarActas();
 	string getNombre();
+    map<int, Acta> getActas();
 };
-#endif /* !TIENDA_H */
+#endif //POSGRADO_H
