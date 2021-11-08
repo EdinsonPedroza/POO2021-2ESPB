@@ -1,4 +1,4 @@
-#include<iostream>
+
 #include "View.h"
 
 View::View()
@@ -23,7 +23,6 @@ void View::mostrarMenu()
 
         switch (opcion)
         {
-
         case 1:
             acta.crearActa();
             break;

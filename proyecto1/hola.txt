@@ -1,2 +1,12 @@
 Facultad de Ingeniería
 Maestría en Ingeniería
+ACTA: 1
+Fecha: 12/12/12
+Trabajo de grado denominado: ww
+Autor:qqqq
+Director:eee
+Co-Director: ff
+Jurado 1:eee
+Jurado 2:ee
+Nota: 2.1375
+Estado: 1

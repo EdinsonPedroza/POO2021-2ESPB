@@ -14,22 +14,15 @@ private: //Atributos
 	int identificador;
     string texto;
     float ponderacion;
-    vector<Criterio> listaCriterios;
 
 public:
     Criterio();
     Criterio(int identificador, string texto, float ponderacion);
 
-	void mostrarCriterio();
-
 	// Gets and sets
 
-	void setIdentificador(int id);
     void setTexto(string textoNuevo);
     void setPonderacion(float ponderacion);
-
-    vector<Criterio> getCriterios();
-    void setlistaCriterios(vector<Criterio>);
     float getPonderacion();
     string getTextoCriterio();
 };

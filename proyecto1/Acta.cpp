@@ -4,15 +4,13 @@
 Acta::Acta() {
 }
 
-void Acta::agregarDetalle(Criterio detalle) {
-
-}
 
 void Acta::mostrarActa() {
     Posgrado posgrado;
     cout << "Numero del acta: " << numeroActa << endl;
     cout << "Fecha: " << fecha << endl;
     cout << "Autor: " << autor << endl;
+    cout << "Nombre del trabajo: " << nombreTrabajo << endl;
     if (estadoDeTrabajo == 0){
         cout << "Estado: Aprobado" << endl;
     }else{
@@ -32,11 +30,23 @@ void Acta::mostrarActa() {
 
 
 
+void Acta::definirEstadoCalificacion() {
+    if (this->notaFinal > 3.5){
+        this->estadoDeTrabajo = aprobado;
+    }else{
+        this->estadoDeTrabajo = reprobado;
+    }
+}
 
+void Acta::llamartexto() {
+    detalles.modificarTextoCriterios();
+}
+
+void Acta::llamarPonderacion() {
+    detalles.modificarPonderado();
+}
 
 //sets y gets
-
-
 
 string Acta::getNombreTrabajo() {
     return this->nombreTrabajo;
@@ -50,9 +60,7 @@ string Acta::getAutor() {
     return autor;
 }
 
-string Acta::getEnfasis() {
-    return this->enfasis;
-}
+
 
 string Acta::getJurado1() {
     return this->jurado1;
@@ -62,9 +70,6 @@ string Acta::getjurado2() {
     return this->jurado2;
 }
 
-string Acta::getPeriodo() {
-    return this->periodo;
-}
 
 string Acta::getFecha() {
     return this->fecha;
@@ -86,11 +91,6 @@ void Acta::setDirector(string director) {
     this->director = director;
 }
 
-void Acta::setEnfasis(string enfasis) {
-    this->enfasis = enfasis;
-}
-
-
 
 void Acta::setJurado1(string jurado1) {
     this->jurado1 = jurado1;
@@ -98,10 +98,6 @@ void Acta::setJurado1(string jurado1) {
 
 void Acta::setjurado2(string jurado2) {
     this->jurado2 = jurado2;
-}
-
-void Acta::setPeriodo(string periodo) {
-    this->periodo = periodo;
 }
 
 void Acta::setFecha(string fecha) {
@@ -128,13 +124,6 @@ int Acta::getNumeroActa() {
     return this->numeroActa;
 }
 
-tipoTrabajo Acta::getTipotrabajo() {
-    return this->tipoDeTrabajo;
-}
-
-vector<Criterio> Acta::getListaDetalles() {
-    return this->criterios;
-}
 
 float Acta::getnotaFinal() {
     return notaFinal;
@@ -148,22 +137,4 @@ estadoTrabajo Acta::getEstado() {
 
 void Acta::setDetalleActa(DetalleActa detalles) {
     this->detalles=detalles;
-}
-
-void Acta::definirEstadoCalificacion() {
-    if (this->notaFinal > 3.5){
-        this->estadoDeTrabajo = aprobado;
-    }else{
-        this->estadoDeTrabajo = reprobado;
-    }
-}
-
-
-
-void Acta::llamartexto() {
-    detalles.modificarTextoCriterios();
-}
-
-void Acta::llamarPonderacion() {
-    detalles.modificarPonderado();
 }

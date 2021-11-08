@@ -1,0 +1,5 @@
+if(EXISTS "C:/Users/Administrador/Desktop/POO2021-2ESPB/pruebasUnitarias/cmake-build-debug/test/niza_full_test[1]_tests.cmake")
+  include("C:/Users/Administrador/Desktop/POO2021-2ESPB/pruebasUnitarias/cmake-build-debug/test/niza_full_test[1]_tests.cmake")
+else()
+  add_test(niza_full_test_NOT_BUILT niza_full_test_NOT_BUILT)
+endif()

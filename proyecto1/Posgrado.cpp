@@ -8,7 +8,7 @@ Posgrado::Posgrado()
 }
 
 void Posgrado::crearActa(){
-    string nombreTrabajo, autor, director, enfasis, jurado1, jurado2, periodo, fecha, coodirector;
+    string nombreTrabajo, autor, director, jurado1, jurado2, fecha, coodirector;
     int numeroActa, trabajo, existeCodirector;
     Acta acta1;
 
@@ -65,7 +65,6 @@ void Posgrado::crearActa(){
     // Adición al mapa de Actas
     actas.insert(std::pair<int, Acta>(numeroActa, acta1));
 
-
 }
 
 void Posgrado::calificarCriterios(){
@@ -73,7 +72,7 @@ void Posgrado::calificarCriterios(){
     int id;
     float nota;
     cout<<"Ingrese el ID del acta: ";
-    cin>>(id);
+    cin>>id;
 
     if ( this->actas.find(id) == this->actas.end() ) {
         cout<<"No se creo un acta con ese ID , \n";
@@ -94,7 +93,7 @@ void Posgrado::modificarCriterios(){
     cin>>id;
 
     if ( this->actas.find(id) == this->actas.end() ) {
-        cout<<"No se creo un acta con ese ID , \n";
+        cout<<"No se creo un acta con ese ID  \n";
 
     } else {
         int menu;
@@ -114,22 +113,19 @@ void Posgrado::verActa(){
     if (actas.size() == 0){
         cout<<"No hay Actas para mostrar"<<endl;
         return;
-    }else{
+    }else {
         for (map<int, Acta>::iterator pActa = actas.begin();
-               pActa != actas.end(); pActa++)
-        {
+             pActa != actas.end(); pActa++) {
             Acta valor = pActa->second; // Se obtiene el valor asociado al mapa
             valor.mostrarActa();
         }
     }
-
 }
 
 void Posgrado::exportarActa(){
 
     string nombreArchivo;
     ofstream archivo;
-    char rpt;
     int id;
 
     cout << "Ingrese el id del acta: " << endl;
@@ -148,7 +144,7 @@ void Posgrado::exportarActa(){
 
         archivo<<"Facultad de Ingeniería\n"
                  "Maestría en Ingeniería\n";
-        archivo<<"ACTA:"<< actas[id].getNumeroActa()<<"\n";
+        archivo<<"ACTA: "<< actas[id].getNumeroActa()<<"\n";
         archivo<<"Fecha: "<<actas[id].getFecha()<<"\n";
         archivo<<"Trabajo de grado denominado: "<< actas[id].getNombreTrabajo()<<"\n";
         archivo<<"Autor:"<< actas[id].getAutor()<<"\n";
@@ -161,15 +157,5 @@ void Posgrado::exportarActa(){
 
         archivo.close(); //Cerramos el archivo
     }
-
-
-}
-
-Posgrado::Posgrado(string nombre) {
-
-}
-
-map<int, Acta> Posgrado::getActas() {
-    return this->actas;
 }
 

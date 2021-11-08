@@ -21,25 +21,15 @@ using namespace std;
 class Posgrado
 {
 private: //Atributos
-	
-
     map<int, Acta> actas;
 
 public:		  //Metodos
 	Posgrado(); //Constructor
-	Posgrado(string nombre);
 	void crearActa();
 	void calificarCriterios();
 	void modificarCriterios();
 	void verActa();
 	void exportarActa();
 
-	void mostrarCriterios();
-
-
-	// Gets and sets;
-    //	void mostrarActas();
-	string getNombre();
-    map<int, Acta> getActas();
 };
 #endif //POSGRADO_H
